@@ -41,11 +41,7 @@ namespace _21_11_2021.Controllers
         public IActionResult Register()
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             return View();
         }
 
@@ -54,11 +50,7 @@ namespace _21_11_2021.Controllers
         public async Task<IActionResult> Register(UserRegistrationModel userModel)
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             if (!ModelState.IsValid)
             {
                 return View(userModel);
@@ -93,11 +85,7 @@ namespace _21_11_2021.Controllers
         public async Task<IActionResult> ConfirmEmail(string token, string email)
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
                 return View("Error");
@@ -109,11 +97,7 @@ namespace _21_11_2021.Controllers
         public IActionResult SuccessRegistration()
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             return View();
         }
 
@@ -121,11 +105,7 @@ namespace _21_11_2021.Controllers
         public IActionResult Login(string returnUrl = null)
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
@@ -135,11 +115,7 @@ namespace _21_11_2021.Controllers
         public async Task<IActionResult> Login(UserLogin userModel, string returnUrl = null)
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             if (!ModelState.IsValid)
             {
                 return View(userModel);
@@ -163,11 +139,7 @@ namespace _21_11_2021.Controllers
         public IActionResult ExternalLogin(string provider, string returnUrl = null)
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             var redirectUrl = Url.Action(nameof(ExternalLoginCallback), "Account", new { returnUrl });
             var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
             return Challenge(properties, provider);
@@ -177,11 +149,7 @@ namespace _21_11_2021.Controllers
         public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null)
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             var info = await _signInManager.GetExternalLoginInfoAsync();
             if (info == null)
             {
@@ -211,11 +179,7 @@ namespace _21_11_2021.Controllers
         public async Task<IActionResult> ExternalLoginConfirmation(ExternalLogin model, string returnUrl = null)
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             if (!ModelState.IsValid)
                 return View(model);
 
@@ -271,11 +235,7 @@ namespace _21_11_2021.Controllers
         public async Task<IActionResult> Logout()
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             await _signInManager.SignOutAsync();
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
@@ -303,11 +263,7 @@ namespace _21_11_2021.Controllers
         public IActionResult ForgotPassword()
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             return View();
         }
 
@@ -316,11 +272,7 @@ namespace _21_11_2021.Controllers
         public async Task<IActionResult> ForgotPassword(ForgotPassword forgotPasswordModel)
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             if (!ModelState.IsValid)
                 return View(forgotPasswordModel);
 
@@ -340,11 +292,7 @@ namespace _21_11_2021.Controllers
         public IActionResult ForgotPasswordConfirmation()
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             return View();
         }
 
@@ -352,11 +300,7 @@ namespace _21_11_2021.Controllers
         public IActionResult ResetPassword(string token, string email)
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             var model = new ResetPassword { Token = token, Email = email };
             return View(model);
         }
@@ -366,11 +310,7 @@ namespace _21_11_2021.Controllers
         public async Task<IActionResult> ResetPassword(ResetPassword resetPasswordModel)
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             if (!ModelState.IsValid)
                 return View(resetPasswordModel);
             var user = await _userManager.FindByEmailAsync(resetPasswordModel.Email);
@@ -392,11 +332,7 @@ namespace _21_11_2021.Controllers
         public IActionResult ResetPasswordConfirmation()
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             return View();
         }
 
@@ -404,22 +340,14 @@ namespace _21_11_2021.Controllers
         public IActionResult Error()
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             return View();
         }
 
         public async Task<IActionResult> AccessDenied()
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
-            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
-            ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
-            ViewBag.SanPham = _context.sanPhams.ToList();
-            ViewBag.TinTuc = _context.tinTucs.ToList();
             return View();
         }
     }
