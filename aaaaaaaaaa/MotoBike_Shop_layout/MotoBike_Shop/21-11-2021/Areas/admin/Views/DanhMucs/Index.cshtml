@@ -1,0 +1,111 @@
+﻿@model IEnumerable<_21_11_2021.Areas.admin.Models.DanhMuc>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="wrapper">
+    <!-- Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Danh mục sản phẩm</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                            <li class="breadcrumb-item active">Danh mục sản phẩm</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <a asp-action="Create"><i class="fas fa-plus-circle"></i></a>
+                                </h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example2" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Mã danh mục</th>
+                                            <th>Tên danh mục</th>
+                                            <th>Trạng thái</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td> @Html.DisplayFor(modelItem => item.MaDanhMuc)</td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.TenDanhMuc)
+                                                </td>
+                                                <td>@Html.DisplayFor(modelItem => item.TrangThai)</td>
+                                                <td>
+                                                    <div class="container-fluid">
+                                                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#flipFlop" >
+                                                            <a asp-action="IdShowModal" asp-route-id="@item.MaDanhMuc" style="color:white;"> Xóa </a>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">
+                                                            <a asp-action="Edit" asp-route-id="@item.MaDanhMuc" style="color:white;">Sửa</a>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!--Modal-->
+
+                                            <!--End modal-->
+                                            @*<a asp-action="Delete" asp-route-id="@item.MaDanhMuc">Delete</a>*@
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</div>
+<div class="modal fade" id="flipFlop" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modalLabel">Bạn có muốn xóa danh mục này</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align:center;">
+                <h4>Mã Danh Mục :  @ViewBag.Id</h4>
+                <h4>Tên Danh Mục:  @ViewBag.Name</h4>
+                <h4>Trạng Thái  :  @ViewBag.Status</h4>
+            </div>
+            <div class="modal-footer">
+                <a asp-action="DeleteModal" asp-route-id="@ViewBag.Id" style="color:red;">Xóa</a>
+            </div>
+        </div>
+    </div>
+</div>
