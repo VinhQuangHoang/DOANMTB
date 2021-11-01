@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1opLggBUQ4GWr6pXnMVVAsFPEi50T7wJt6/f8KByv60QbaM2klfNv/PiK6KdOrebibwSwGcgwlZmTP/PuToJVA==",
+  "dgSpecHash": "+1/ya6eAXhLRw/PUthqF+E2k4cmPrVpSWp65NFs77ezn7eEZb4LMWF4bUDKR2KUW5jxB1GF5l2VvjpGZWOB9JQ==",
   "success": true,
-  "projectFilePath": "D:\\aaaaaaaaaa\\MotoBike_Shop_layout\\MotoBike_Shop\\EmailSender\\EmailSender.csproj",
+  "projectFilePath": "D:\\DOANMTB\\aaaaaaaaaa\\MotoBike_Shop_layout\\MotoBike_Shop\\EmailSender\\EmailSender.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\home\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\home\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

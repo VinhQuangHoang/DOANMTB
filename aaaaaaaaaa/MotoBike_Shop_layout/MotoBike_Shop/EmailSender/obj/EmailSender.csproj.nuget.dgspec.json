@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\aaaaaaaaaa\\MotoBike_Shop_layout\\MotoBike_Shop\\EmailSender\\EmailSender.csproj": {}
+    "D:\\DOANMTB\\aaaaaaaaaa\\MotoBike_Shop_layout\\MotoBike_Shop\\EmailSender\\EmailSender.csproj": {}
   },
   "projects": {
-    "D:\\aaaaaaaaaa\\MotoBike_Shop_layout\\MotoBike_Shop\\EmailSender\\EmailSender.csproj": {
+    "D:\\DOANMTB\\aaaaaaaaaa\\MotoBike_Shop_layout\\MotoBike_Shop\\EmailSender\\EmailSender.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\aaaaaaaaaa\\MotoBike_Shop_layout\\MotoBike_Shop\\EmailSender\\EmailSender.csproj",
+        "projectUniqueName": "D:\\DOANMTB\\aaaaaaaaaa\\MotoBike_Shop_layout\\MotoBike_Shop\\EmailSender\\EmailSender.csproj",
         "projectName": "EmailSender",
-        "projectPath": "D:\\aaaaaaaaaa\\MotoBike_Shop_layout\\MotoBike_Shop\\EmailSender\\EmailSender.csproj",
+        "projectPath": "D:\\DOANMTB\\aaaaaaaaaa\\MotoBike_Shop_layout\\MotoBike_Shop\\EmailSender\\EmailSender.csproj",
         "packagesPath": "C:\\Users\\home\\.nuget\\packages\\",
-        "outputPath": "D:\\aaaaaaaaaa\\MotoBike_Shop_layout\\MotoBike_Shop\\EmailSender\\obj\\",
+        "outputPath": "D:\\DOANMTB\\aaaaaaaaaa\\MotoBike_Shop_layout\\MotoBike_Shop\\EmailSender\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
