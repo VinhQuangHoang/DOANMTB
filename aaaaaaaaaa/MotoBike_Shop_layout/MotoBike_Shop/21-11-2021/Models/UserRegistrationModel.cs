@@ -9,7 +9,7 @@ namespace _21_11_2021.Models
     public class UserRegistrationModel
     {
         [Required(AllowEmptyStrings = false, ErrorMessage = "FullName is required")]
-        [StringLength(50)]
+        [StringLength(50, MinimumLength = 10)]
         public string FullName { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Email is required")]

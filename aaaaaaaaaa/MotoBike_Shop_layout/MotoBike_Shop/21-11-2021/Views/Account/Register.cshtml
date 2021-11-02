@@ -4,7 +4,7 @@
     <div class="register-box">
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="~/admin/index2.html" class="h1"><b>Admin</b>LTE</a>
+                <a asp-controller="Account" asp-action="Register" class="h1"><b>Register</b></a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Register a new membership</p>
@@ -29,7 +29,7 @@
                         <input asp-for="PhoneNumber" type="tel" class="form-control" placeholder="PhoneNumber">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span asp-validation-for="PhoneNumber" class="fas fa-envelope"></span>
+                                <span asp-validation-for="PhoneNumber" class="fas fa-phone-square"></span>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                         <input asp-for="Gender" type="text" class="form-control" placeholder="Gender">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span asp-validation-for="Gender" class="fas fa-envelope"></span>
+                                <span asp-validation-for="Gender" class="fas fa-transgender-alt"></span>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                         <input asp-for="Address" type="text" class="form-control" placeholder="Address">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span asp-validation-for="Address" class="fas fa-envelope"></span>
+                                <span asp-validation-for="Address" class="fas fa-address-book"></span>
                             </div>
                         </div>
                     </div>
@@ -68,32 +68,21 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="icheck-primary">
-                                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                                <input type="checkbox" id="agreeTerms" name="terms" value="agree" required>
                                 <label for="agreeTerms">
                                     I agree to the <a href="#">terms</a>
                                 </label>
                             </div>
                         </div>
-                        <!-- /.col -->
-                        <div class="col-4">
+                        <hr>
+                    </div>
+                    <div class="social-auth-links text-center">
+                        <a href="#" class="btn btn-block btn-primary">
                             <button type="submit" class="btn btn-primary btn-block">Register</button>
-                        </div>
-                        <!-- /.col -->
+                        </a>
                     </div>
                 </form>
-
-                <div class="social-auth-links text-center">
-                    <a href="#" class="btn btn-block btn-primary">
-                        <i class="fab fa-facebook mr-2"></i>
-                        Sign up using Facebook
-                    </a>
-                    <a href="#" class="btn btn-block btn-danger">
-                        <i class="fab fa-google-plus mr-2"></i>
-                        Sign up using Google+
-                    </a>
-                </div>
-
-                <a href="login.html" class="text-center">I already have a membership</a>
+                <a asp-action="Login" asp-controller="Account" class="text-center">I already have a membership</a>
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->
