@@ -8,13 +8,13 @@ namespace _21_11_2021.Models
 {
     public class ResetPassword
     {
-        [Required]
+        [Required(ErrorMessage = "Mật khẩu không được bỏ trống")]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public string MatKhau { get; set; }
 
-        [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }
+        [DataType(DataType.Password, ErrorMessage = "Mật khẩu cần kí tự đặc biệt chữ hoa và thường")]
+        [Compare("Password", ErrorMessage = "mật khẩu chưa khớp.")]
+        public string XacNhanMK { get; set; }
 
         public string Email { get; set; }
         public string Token { get; set; }

@@ -10,3 +10,15 @@ D:\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\EmailSender\obj\Debug\net5.0\Em
 D:\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\EmailSender\obj\Debug\net5.0\EmailSender.dll
 D:\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\EmailSender\obj\Debug\net5.0\ref\EmailSender.dll
 D:\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\EmailSender\obj\Debug\net5.0\EmailSender.pdb
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\EmailSender\bin\Debug\net5.0\EmailSender.deps.json
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\EmailSender\bin\Debug\net5.0\EmailSender.dll
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\EmailSender\bin\Debug\net5.0\ref\EmailSender.dll
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\EmailSender\bin\Debug\net5.0\EmailSender.pdb
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\EmailSender\obj\Debug\net5.0\EmailSender.csproj.AssemblyReference.cache
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\EmailSender\obj\Debug\net5.0\EmailSender.GeneratedMSBuildEditorConfig.editorconfig
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\EmailSender\obj\Debug\net5.0\EmailSender.AssemblyInfoInputs.cache
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\EmailSender\obj\Debug\net5.0\EmailSender.AssemblyInfo.cs
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\EmailSender\obj\Debug\net5.0\EmailSender.csproj.CoreCompileInputs.cache
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\EmailSender\obj\Debug\net5.0\EmailSender.dll
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\EmailSender\obj\Debug\net5.0\ref\EmailSender.dll
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\EmailSender\obj\Debug\net5.0\EmailSender.pdb

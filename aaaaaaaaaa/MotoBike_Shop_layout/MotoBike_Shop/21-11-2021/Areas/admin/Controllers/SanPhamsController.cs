@@ -75,8 +75,8 @@ namespace _21_11_2021.Areas.admin.Controllers
                        select pay;
             foreach(var item in data)
             {
-                sanPham.GiaKhuyenMai = item.SoTienGiam;
-                sanPham.GiaDaKhuyenMai = sanPham.Gia - item.SoTienGiam;
+                sanPham.GiaKhuyenMai = item.GiamGia;
+                sanPham.GiaDaKhuyenMai = sanPham.Gia - item.GiamGia;
             }    
             if (ModelState.IsValid)
             {
@@ -200,8 +200,8 @@ namespace _21_11_2021.Areas.admin.Controllers
                     //chinh sua gia tien
                     foreach (var item in data)
                     {
-                        sanpham.GiaKhuyenMai = item.SoTienGiam;
-                        sanpham.GiaDaKhuyenMai = sanPham.Gia - item.SoTienGiam;
+                        sanpham.GiaKhuyenMai = item.GiamGia;
+                        sanpham.GiaDaKhuyenMai = sanPham.Gia - item.GiamGia;
                     }
                     sanpham.ChiTiet = sanPham.ChiTiet;
                     sanpham.MaKhuyenMai = sanPham.MaKhuyenMai;

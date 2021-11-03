@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _21_11_2021.Migrations
 {
-    public partial class CRDB : Migration
+    public partial class CREATEINITIAL : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,13 +26,9 @@ namespace _21_11_2021.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Avatar = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Rank = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HoTen = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GioiTinh = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Hang = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -124,7 +120,7 @@ namespace _21_11_2021.Migrations
                     MaKhuyenMai = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TenKhuyenMai = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SoTienGiam = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    GiamGia = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     TrangThai = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -435,12 +431,12 @@ namespace _21_11_2021.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "c8f73cca-e5d7-4970-8d52-dd7560f6d7bc", "49a4ca82-245e-4414-a20c-d68996c5b600", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "aab50c55-5649-4f56-b637-f23888ba35cb", "c03b9420-84bf-4a92-871e-8e27bfd9ffa2", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "96e46cdf-806d-4b3f-a7aa-d83dcfa6eaed", "a350cc26-0209-42bc-ad42-e7fed4e4ede7", "Visitor", "VISITOR" });
+                values: new object[] { "aceed011-7f59-4e42-af32-0c975e0f996b", "d8070b22-63ca-4564-8925-d4b2f188d088", "Visitor", "VISITOR" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

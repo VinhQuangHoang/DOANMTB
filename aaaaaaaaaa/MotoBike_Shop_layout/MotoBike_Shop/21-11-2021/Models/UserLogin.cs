@@ -9,15 +9,15 @@ namespace _21_11_2021.Models
 {
     public class UserLogin
     {
-        [Required(ErrorMessage = "Email is required")]
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [Required(ErrorMessage = "Email không được trống")]
+        [EmailAddress(ErrorMessage = "Email không hợp lệ")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Password is required")]
+        [Required(ErrorMessage = "Mật khẩu không được bỏ trống")]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public string MatKhau { get; set; }
 
-        [Display(Name = "Remember me?")]
-        public bool RememberMe { get; set; }
+        [Display(Name = "Nhớ tài khoản?")]
+        public bool NhoTK { get; set; }
     }
 }

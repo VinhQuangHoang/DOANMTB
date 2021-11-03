@@ -52,10 +52,9 @@ namespace _21_11_2021.Controllers
             {
                 return View(userModel);
             }
-
+            
             var user = _mapper.Map<User>(userModel);
-
-            var result = await _userManager.CreateAsync(user, userModel.Password);
+            var result = await _userManager.CreateAsync(user, userModel.MatKhau);
             if (!result.Succeeded)
             {
                 foreach (var error in result.Errors)
@@ -72,7 +71,7 @@ namespace _21_11_2021.Controllers
             var message = new Message(new string[] { "pqmotobikeshop@gmail.com" }/*{ user.Email }*/, "Confirmation email link", confirmationLink, null);
             await _emailSender.SendEmailAsync(message);
 
-            await _userManager.AddToRoleAsync(user, "Administrator");
+            await _userManager.AddToRoleAsync(user, "Visitor");
 
 
             return RedirectToAction(nameof(SuccessRegistration));
@@ -118,7 +117,7 @@ namespace _21_11_2021.Controllers
                 return View(userModel);
             }
 
-            var result = await _signInManager.PasswordSignInAsync(userModel.Email, userModel.Password, userModel.RememberMe, true);
+            var result = await _signInManager.PasswordSignInAsync(userModel.Email, userModel.MatKhau, userModel.NhoTK, true);
             if (result.Succeeded)
             {
                 var user = await _context.Users.FirstOrDefaultAsync(m => m.Email == userModel.Email);
@@ -313,7 +312,7 @@ namespace _21_11_2021.Controllers
             var user = await _userManager.FindByEmailAsync(resetPasswordModel.Email);
             if (user == null)
                 RedirectToAction(nameof(ResetPasswordConfirmation));
-            var resetPassResult = await _userManager.ResetPasswordAsync(user, resetPasswordModel.Token, resetPasswordModel.Password);
+            var resetPassResult = await _userManager.ResetPasswordAsync(user, resetPasswordModel.Token, resetPasswordModel.MatKhau);
             if (!resetPassResult.Succeeded)
             {
                 foreach (var error in resetPassResult.Errors)

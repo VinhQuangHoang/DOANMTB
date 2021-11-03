@@ -17,7 +17,7 @@ namespace _21_11_2021.Models
 
             CreateMap<ExternalLogin, User>()
                 .ForMember(u => u.UserName, opt => opt.MapFrom(x => x.Email))
-                .ForMember(u => u.FullName, opt => opt.MapFrom(x => x.Principal.FindFirst(ClaimTypes.Name).Value));
+                .ForMember(u => u.HoTen, opt => opt.MapFrom(x => x.Principal.FindFirst(ClaimTypes.Name).Value));
         }
 
 

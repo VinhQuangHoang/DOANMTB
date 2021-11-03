@@ -12,7 +12,7 @@ namespace _21_11_2021.Areas.admin.Models
         [Key]
         public int MaKhuyenMai { get;set; }
         public string TenKhuyenMai { get; set; }
-        public decimal SoTienGiam { get; set; }
+        public decimal GiamGia { get; set; }
         public bool TrangThai { get; set; }
         public ICollection<SanPham> lstSanPham { get; set; }
     }

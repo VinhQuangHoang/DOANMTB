@@ -8,30 +8,30 @@ namespace _21_11_2021.Models
 {
     public class UserRegistrationModel
     {
-        [Required(AllowEmptyStrings = false, ErrorMessage = "FullName is required")]
-        [StringLength(50, MinimumLength = 10)]
-        public string FullName { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Họ tên không được bỏ trống")]
+        [StringLength(50, MinimumLength = 10, ErrorMessage = "Họ tên ít nhất 10 ký tự")]
+        public string HoTen { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Email is required")]
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Email không được trống")]
+        [EmailAddress(ErrorMessage = "Email không hợp lệ")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Password is required & need kí tự đặc biệt")]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
+        [Required(ErrorMessage = "Mật khẩu không được bỏ trống")]
+        [DataType(DataType.Password, ErrorMessage = "Mật khẩu cần kí tự đặc biệt chữ hoa và thường")]
+        public string MatKhau { get; set; }
 
-        [Required(ErrorMessage = "PhoneNumber is required")]
+        [Required(ErrorMessage = "Số điện thoại không được bỏ trống")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
-        public string PhoneNumber { get; set; }
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "số điện thoại không hợp lệ")]
+        public string SDT { get; set; }
 
-        [Required(ErrorMessage = "Address is required")]
-        public string Address { get; set; }
+        [Required(ErrorMessage = "Địa chỉ không được trống")]
+        public string DiaChi { get; set; }
 
-        [Required(ErrorMessage = "Gender is required")]
-        public string Gender { get; set; }
-        [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }
+        [Required(ErrorMessage = "Nam hoặc nữ")]
+        public string GioiTinh { get; set; }
+        [DataType(DataType.Password, ErrorMessage = "Mật khẩu cần kí tự đặc biệt chữ hoa và thường")]
+        [Compare("MatKhau", ErrorMessage = "xác nhận mật khẩu chưa khớp.")]
+        public string XacNhanMK { get; set; }
     }
 }

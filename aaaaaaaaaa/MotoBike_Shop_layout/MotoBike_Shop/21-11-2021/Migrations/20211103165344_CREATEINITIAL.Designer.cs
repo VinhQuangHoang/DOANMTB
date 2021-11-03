@@ -10,8 +10,8 @@ using _21_11_2021.Areas.admin.Data;
 namespace _21_11_2021.Migrations
 {
     [DbContext(typeof(DPContext))]
-    [Migration("20211102045458_CRDB")]
-    partial class CRDB
+    [Migration("20211103165344_CREATEINITIAL")]
+    partial class CREATEINITIAL
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,15 +50,15 @@ namespace _21_11_2021.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c8f73cca-e5d7-4970-8d52-dd7560f6d7bc",
-                            ConcurrencyStamp = "49a4ca82-245e-4414-a20c-d68996c5b600",
+                            Id = "aab50c55-5649-4f56-b637-f23888ba35cb",
+                            ConcurrencyStamp = "c03b9420-84bf-4a92-871e-8e27bfd9ffa2",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "96e46cdf-806d-4b3f-a7aa-d83dcfa6eaed",
-                            ConcurrencyStamp = "a350cc26-0209-42bc-ad42-e7fed4e4ede7",
+                            Id = "aceed011-7f59-4e42-af32-0c975e0f996b",
+                            ConcurrencyStamp = "d8070b22-63ca-4564-8925-d4b2f188d088",
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         });
@@ -386,7 +386,7 @@ namespace _21_11_2021.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<decimal>("SoTienGiam")
+                    b.Property<decimal>("GiamGia")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("TenKhuyenMai")
@@ -531,12 +531,6 @@ namespace _21_11_2021.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Avatar")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -548,10 +542,13 @@ namespace _21_11_2021.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("FullName")
+                    b.Property<string>("GioiTinh")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Gender")
+                    b.Property<string>("Hang")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HoTen")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -577,16 +574,7 @@ namespace _21_11_2021.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Rank")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Role")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
