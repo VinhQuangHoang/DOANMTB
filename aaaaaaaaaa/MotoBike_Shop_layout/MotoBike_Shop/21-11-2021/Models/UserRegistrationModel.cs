@@ -11,7 +11,6 @@ namespace _21_11_2021.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Họ tên không được bỏ trống")]
         [StringLength(50, MinimumLength = 10, ErrorMessage = "Họ tên ít nhất 10 ký tự")]
         public string HoTen { get; set; }
-
         [Required(AllowEmptyStrings = false, ErrorMessage = "Email không được trống")]
         [EmailAddress(ErrorMessage = "Email không hợp lệ")]
         public string Email { get; set; }
@@ -29,9 +28,16 @@ namespace _21_11_2021.Models
         public string DiaChi { get; set; }
 
         [Required(ErrorMessage = "Nam hoặc nữ")]
-        public string GioiTinh { get; set; }
+        [EnumDataType(typeof(GioiTinh))]
+        public GioiTinh GioiTinh { get; set; }
         [DataType(DataType.Password, ErrorMessage = "Mật khẩu cần kí tự đặc biệt chữ hoa và thường")]
         [Compare("MatKhau", ErrorMessage = "xác nhận mật khẩu chưa khớp.")]
         public string XacNhanMK { get; set; }
+    }
+    public enum GioiTinh
+    {
+        Nam = 1,
+        Nữ = 2,
+        Khác = 3
     }
 }

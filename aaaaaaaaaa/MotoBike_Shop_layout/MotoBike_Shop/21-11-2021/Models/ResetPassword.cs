@@ -15,7 +15,6 @@ namespace _21_11_2021.Models
         [DataType(DataType.Password, ErrorMessage = "Mật khẩu cần kí tự đặc biệt chữ hoa và thường")]
         [Compare("Password", ErrorMessage = "mật khẩu chưa khớp.")]
         public string XacNhanMK { get; set; }
-
         public string Email { get; set; }
         public string Token { get; set; }
     }

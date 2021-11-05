@@ -1,6 +1,8 @@
 ﻿using _21_11_2021.Areas.admin.Data;
+using _21_11_2021.Areas.admin.Models;
 using _21_11_2021.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -30,21 +32,48 @@ namespace _21_11_2021.Controllers
             ViewBag.TinTuc = _context.tinTucs.ToList();
             return View();
         }
-        public async Task<IActionResult> Sanpham(int? id)
+        [HttpGet]
+        public async Task<IActionResult> Sanpham(int? id, string searchString)
         {
-            ViewBag.DanhMucSp = _context.danhMucs.ToList();
+            //List<SanPham> listproduct = new List<SanPham>();
+            //foreach (var item in li)
+            //{
+            //    SanPham temp = new SanPham();
+            //    temp.MaSanPham = item.MaSanPham;
+            //    temp.TenSanPham = item.TenSanPham;
+            //    temp.Loai = item.Loai;
+            //    temp.HinhAnh = item.HinhAnh;
+            //    listproduct.Add(temp);
+
+            //    return View(listproduct);
+            //}
+
             ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
+            ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Slide = _context.slideshows.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             ViewBag.SanPham = _context.sanPhams.ToList();
             ViewBag.TinTuc = _context.tinTucs.ToList();
+
+            ViewData["CurrentFilter"] = searchString;
+
+            var li = from x in _context.sanPhams
+                     select x;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                li = li.Where(x => x.TenSanPham.Contains(searchString) /*|| s.UEmail.Contains(searchString)*/);
+            }
+
             if (id == null)
             {
                 return NotFound();
             }
             ViewBag.ListSP = _context.sanPhams.Where(x => x.MaLoaiSanPham == id).ToList();
-            return View();
+            return View(await li.AsNoTracking().ToListAsync());
         }
+
+        [HttpGet]
         public async Task<IActionResult> Chitietsanpham(int? id)
         {
             ViewBag.DanhMucSp = _context.danhMucs.ToList();

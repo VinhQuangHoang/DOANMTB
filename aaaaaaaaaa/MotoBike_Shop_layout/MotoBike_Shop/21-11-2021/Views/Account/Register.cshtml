@@ -34,10 +34,14 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input asp-for="GioiTinh" type="text" class="form-control" placeholder="Giới tính">
+                        <label asp-for="GioiTinh" class="form-control" >Giới tính</label>
+
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span asp-validation-for="GioiTinh" class="fas fa-transgender-alt"></span>
+                                <select asp-for="GioiTinh" asp-items="Html.GetEnumSelectList<GioiTinh>()">
+                                    <option selected="selected" value="">Please select</option>
+                                </select>
+                                <span asp-validation-for="GioiTinh" class="text-danger" />
                             </div>
                         </div>
                     </div>

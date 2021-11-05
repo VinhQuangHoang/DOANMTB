@@ -10,8 +10,8 @@ using _21_11_2021.Areas.admin.Data;
 namespace _21_11_2021.Migrations
 {
     [DbContext(typeof(DPContext))]
-    [Migration("20211103165344_CREATEINITIAL")]
-    partial class CREATEINITIAL
+    [Migration("20211105071331_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,15 +50,15 @@ namespace _21_11_2021.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "aab50c55-5649-4f56-b637-f23888ba35cb",
-                            ConcurrencyStamp = "c03b9420-84bf-4a92-871e-8e27bfd9ffa2",
+                            Id = "ec5ec221-f858-430b-b453-f751968450e4",
+                            ConcurrencyStamp = "023e4ea6-4e4a-4be5-8744-06f19290f513",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "aceed011-7f59-4e42-af32-0c975e0f996b",
-                            ConcurrencyStamp = "d8070b22-63ca-4564-8925-d4b2f188d088",
+                            Id = "35b4c26b-f6aa-4e4d-a579-24cdf7a776cf",
+                            ConcurrencyStamp = "bb2816a1-a1f1-4330-ad84-c120069b312e",
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         });

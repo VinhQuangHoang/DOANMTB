@@ -1,5 +1,6 @@
 ﻿using _21_11_2021.Areas.admin.Models;
 using _21_11_2021.Areas.admin.Models.Configuration;
+using _21_11_2021.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -35,5 +36,6 @@ namespace _21_11_2021.Areas.admin.Data
         public DbSet<Footshows> footshows { get; set; }
         public DbSet<TinTuc> tinTucs { get; set; }
         public DbSet<User> users { get; set; }
+
     }
 }

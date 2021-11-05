@@ -5,7 +5,9 @@ using AutoMapper;
 using EmailService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -13,7 +15,7 @@ using System.Threading.Tasks;
 namespace _21_11_2021.Controllers
 {
     public class AccountController : Controller
-    {
+    {   
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
@@ -31,12 +33,14 @@ namespace _21_11_2021.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
 
 
         public IActionResult Register()
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             return View();
@@ -46,13 +50,20 @@ namespace _21_11_2021.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(UserRegistrationModel userModel)
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             if (!ModelState.IsValid)
-            {
+            {               
                 return View(userModel);
             }
-            
+            var isEmailAlreadyExists = _userManager.Users.Any(x => x.Email == userModel.Email);
+            if (isEmailAlreadyExists)
+            {
+                ModelState.AddModelError("Email", "Email này đã tồn tại!");
+                return View(userModel);
+            }
+
             var user = _mapper.Map<User>(userModel);
             var result = await _userManager.CreateAsync(user, userModel.MatKhau);
             if (!result.Succeeded)
@@ -71,7 +82,7 @@ namespace _21_11_2021.Controllers
             var message = new Message(new string[] { "pqmotobikeshop@gmail.com" }/*{ user.Email }*/, "Confirmation email link", confirmationLink, null);
             await _emailSender.SendEmailAsync(message);
 
-            await _userManager.AddToRoleAsync(user, "Visitor");
+            await _userManager.AddToRoleAsync(user, "Administrator");
 
 
             return RedirectToAction(nameof(SuccessRegistration));
@@ -80,6 +91,7 @@ namespace _21_11_2021.Controllers
         [HttpGet]
         public async Task<IActionResult> ConfirmEmail(string token, string email)
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             var user = await _userManager.FindByEmailAsync(email);
@@ -92,6 +104,7 @@ namespace _21_11_2021.Controllers
         [HttpGet]
         public IActionResult SuccessRegistration()
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             return View();
@@ -100,6 +113,7 @@ namespace _21_11_2021.Controllers
         [HttpGet]
         public IActionResult Login(string returnUrl = null)
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             ViewData["ReturnUrl"] = returnUrl;
@@ -110,6 +124,7 @@ namespace _21_11_2021.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(UserLogin userModel, string returnUrl = null)
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             if (!ModelState.IsValid)
@@ -134,6 +149,7 @@ namespace _21_11_2021.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult ExternalLogin(string provider, string returnUrl = null)
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             var redirectUrl = Url.Action(nameof(ExternalLoginCallback), "Account", new { returnUrl });
@@ -144,6 +160,7 @@ namespace _21_11_2021.Controllers
         [HttpGet]
         public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null)
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             var info = await _signInManager.GetExternalLoginInfoAsync();
@@ -174,6 +191,7 @@ namespace _21_11_2021.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ExternalLoginConfirmation(ExternalLogin model, string returnUrl = null)
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             if (!ModelState.IsValid)
@@ -230,6 +248,7 @@ namespace _21_11_2021.Controllers
         //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             await _signInManager.SignOutAsync();
@@ -258,6 +277,7 @@ namespace _21_11_2021.Controllers
         [HttpGet]
         public IActionResult ForgotPassword()
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             return View();
@@ -267,6 +287,7 @@ namespace _21_11_2021.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ForgotPassword(ForgotPassword forgotPasswordModel)
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             if (!ModelState.IsValid)
@@ -287,6 +308,7 @@ namespace _21_11_2021.Controllers
 
         public IActionResult ForgotPasswordConfirmation()
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             return View();
@@ -295,6 +317,7 @@ namespace _21_11_2021.Controllers
         [HttpGet]
         public IActionResult ResetPassword(string token, string email)
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             var model = new ResetPassword { Token = token, Email = email };
@@ -305,6 +328,7 @@ namespace _21_11_2021.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ResetPassword(ResetPassword resetPasswordModel)
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             if (!ModelState.IsValid)
@@ -327,6 +351,7 @@ namespace _21_11_2021.Controllers
         [HttpGet]
         public IActionResult ResetPasswordConfirmation()
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             return View();
@@ -335,6 +360,7 @@ namespace _21_11_2021.Controllers
         [HttpGet]
         public IActionResult Error()
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             return View();
@@ -342,6 +368,7 @@ namespace _21_11_2021.Controllers
 
         public async Task<IActionResult> AccessDenied()
         {
+            ViewBag.LoaiSP = _context.loaiSanPhams.ToList();
             ViewBag.DanhMucSp = _context.danhMucs.ToList();
             ViewBag.Foot = _context.footshows.ToList();
             return View();
