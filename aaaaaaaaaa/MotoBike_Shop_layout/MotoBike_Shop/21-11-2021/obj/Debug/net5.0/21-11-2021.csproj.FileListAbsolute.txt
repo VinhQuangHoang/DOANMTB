@@ -1224,3 +1224,14 @@ D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\21-11-2021\obj\Debug\ne
 D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\21-11-2021\obj\Debug\net5.0\21-11-2021.pdb
 D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\21-11-2021\obj\Debug\net5.0\21-11-2021.genruntimeconfig.cache
 D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\21-11-2021\obj\Debug\net5.0\21-11-2021.csproj.CopyComplete
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\21-11-2021\obj\Debug\net5.0\Razor\Views\Articles\Create.cshtml.g.cs
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\21-11-2021\obj\Debug\net5.0\Razor\Views\Articles\Delete.cshtml.g.cs
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\21-11-2021\obj\Debug\net5.0\Razor\Views\Articles\Details.cshtml.g.cs
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\21-11-2021\obj\Debug\net5.0\Razor\Views\Articles\Edit.cshtml.g.cs
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\21-11-2021\obj\Debug\net5.0\Razor\Views\Articles\Index.cshtml.g.cs
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\21-11-2021\obj\Debug\net5.0\Razor\Views\ArticlesComments\Create.cshtml.g.cs
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\21-11-2021\obj\Debug\net5.0\Razor\Views\ArticlesComments\Delete.cshtml.g.cs
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\21-11-2021\obj\Debug\net5.0\Razor\Views\ArticlesComments\Details.cshtml.g.cs
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\21-11-2021\obj\Debug\net5.0\Razor\Views\ArticlesComments\Edit.cshtml.g.cs
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\21-11-2021\obj\Debug\net5.0\Razor\Views\ArticlesComments\Index.cshtml.g.cs
+D:\DOANMTB\aaaaaaaaaa\MotoBike_Shop_layout\MotoBike_Shop\21-11-2021\obj\Debug\net5.0\Razor\Views\Shared\_CommentBox.cshtml.g.cs

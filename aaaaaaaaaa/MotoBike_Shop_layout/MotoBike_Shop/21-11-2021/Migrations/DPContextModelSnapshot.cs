@@ -48,15 +48,15 @@ namespace _21_11_2021.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ec5ec221-f858-430b-b453-f751968450e4",
-                            ConcurrencyStamp = "023e4ea6-4e4a-4be5-8744-06f19290f513",
+                            Id = "02631266-2f93-4721-9d57-465e62b32f98",
+                            ConcurrencyStamp = "c21c0dbb-6b24-4f34-975a-158b11a0b163",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "35b4c26b-f6aa-4e4d-a579-24cdf7a776cf",
-                            ConcurrencyStamp = "bb2816a1-a1f1-4330-ad84-c120069b312e",
+                            Id = "b7e5ae17-4f2b-48f2-98e4-5aa43e4d7973",
+                            ConcurrencyStamp = "bdd65c2b-0939-460a-9387-7d1157b51880",
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         });
@@ -595,6 +595,53 @@ namespace _21_11_2021.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("_21_11_2021.Models.Article", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("articles");
+                });
+
+            modelBuilder.Entity("_21_11_2021.Models.ArticlesComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ArticlesId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Comments")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("PublishedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArticlesId");
+
+                    b.ToTable("articlescomments");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -725,6 +772,17 @@ namespace _21_11_2021.Migrations
                     b.Navigation("Loai");
                 });
 
+            modelBuilder.Entity("_21_11_2021.Models.ArticlesComment", b =>
+                {
+                    b.HasOne("_21_11_2021.Models.Article", "Articles")
+                        .WithMany("ArticlesComments")
+                        .HasForeignKey("ArticlesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Articles");
+                });
+
             modelBuilder.Entity("_21_11_2021.Areas.admin.Models.DanhMuc", b =>
                 {
                     b.Navigation("lstLoaiSanPham");
@@ -769,6 +827,11 @@ namespace _21_11_2021.Migrations
             modelBuilder.Entity("_21_11_2021.Areas.admin.Models.User", b =>
                 {
                     b.Navigation("lstHoaDon");
+                });
+
+            modelBuilder.Entity("_21_11_2021.Models.Article", b =>
+                {
+                    b.Navigation("ArticlesComments");
                 });
 #pragma warning restore 612, 618
         }

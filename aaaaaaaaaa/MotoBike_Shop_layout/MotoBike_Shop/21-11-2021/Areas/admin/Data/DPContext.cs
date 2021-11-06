@@ -36,6 +36,8 @@ namespace _21_11_2021.Areas.admin.Data
         public DbSet<Footshows> footshows { get; set; }
         public DbSet<TinTuc> tinTucs { get; set; }
         public DbSet<User> users { get; set; }
+        public DbSet<ArticlesComment> articlescomments { get; set; }
+        public DbSet<Article> articles { get; set; }
 
     }
 }

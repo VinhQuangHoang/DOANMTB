@@ -3,10 +3,25 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _21_11_2021.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Starrating : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "articles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Active = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_articles", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -159,6 +174,28 @@ namespace _21_11_2021.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_tinTucs", x => x.MaTinTuc);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "articlescomments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Comments = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PublishedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ArticlesId = table.Column<int>(type: "int", nullable: false),
+                    Rating = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_articlescomments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_articlescomments_articles_ArticlesId",
+                        column: x => x.ArticlesId,
+                        principalTable: "articles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -431,12 +468,17 @@ namespace _21_11_2021.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "ec5ec221-f858-430b-b453-f751968450e4", "023e4ea6-4e4a-4be5-8744-06f19290f513", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "02631266-2f93-4721-9d57-465e62b32f98", "c21c0dbb-6b24-4f34-975a-158b11a0b163", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "35b4c26b-f6aa-4e4d-a579-24cdf7a776cf", "bb2816a1-a1f1-4330-ad84-c120069b312e", "Visitor", "VISITOR" });
+                values: new object[] { "b7e5ae17-4f2b-48f2-98e4-5aa43e4d7973", "bdd65c2b-0939-460a-9387-7d1157b51880", "Visitor", "VISITOR" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_articlescomments_ArticlesId",
+                table: "articlescomments",
+                column: "ArticlesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -536,6 +578,9 @@ namespace _21_11_2021.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "articlescomments");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
@@ -564,6 +609,9 @@ namespace _21_11_2021.Migrations
 
             migrationBuilder.DropTable(
                 name: "tinTucs");
+
+            migrationBuilder.DropTable(
+                name: "articles");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
